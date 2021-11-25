@@ -23,7 +23,7 @@ $home_url = getUrl().'/';
 </head>
 <body>
     <?php
-        $arr = array("","lecturer","Student","Subject","Question","Exam","LecturerManager","Lecturer_in_charge","","","upload_file","");
+        $arr = array("","lecturer","Student","Subject","Question","Exam","LecturerManager","Lecturer_in_charge","Choice","Student_Answer","upload_file","");
         require_once "./mvc/views/blocks/frame.php";
         require_once "./mvc/views/pages/".$arr[$flag].".php";
         

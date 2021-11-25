@@ -17,7 +17,7 @@
   <tbody>
   <?php foreach($data as $lecturer): ?>
     
-      <tr>
+      <tr class="relativePos">
         <td><?= $lecturer['Lecturer_ID'] ?></td>
         <td><?= $lecturer['First_Name'] ?></td>
         <td><?= $lecturer['Last_Name'] ?></td>
@@ -27,37 +27,18 @@
         <td><?= $lecturer['Faculty'] ?></td>
         <td><?= $lecturer['Phone'] ?></td>
         <td><?= $lecturer['Email'] ?></td>
-        <td><?= $lecturer['Address'] ?></td>
+        <td><?= $lecturer['Address'] ?> <em onclick="location.href='Edit/remove/<?=$lecturer['Lecturer_ID']?>/7'" class="ti-close btn--close"></em></td>
       </tr>
       <?php endforeach; ?>
-    <!-- <tr> -->
-    <!-- </tr> -->
-
   </tbody>
-  <!-- <tbody>
-    <div class="a" style="background-color: aqua">
-      <input class="submit" type="submit" value="Thêm">
-    </div>
-    
-    
-  </tbody> -->
 </table>
 
 
-<table class="table table-hover margin-table">
+<table style="width: 100px" class="table table-hover margin-table">
 <thead>
-<form class="fix-pos" action="" method="post">
+<form  class="fix-pos" action="" method="post">
       <tr>
         <td><input type="text" class="form-control" placeholder="ID" require/></td>
-        <td><input type="text" class="form-control" placeholder="First Name" require/></td>
-        <td><input type="text" class="form-control" placeholder="Last Name" require/></td>
-        <td><input type="text" class="form-control" placeholder="Role"/></td>
-        <td><input type="text" class="form-control" placeholder="Name" require/></td>
-        <td><input type="text" class="form-control" placeholder="Degree"/></td>
-        <td><input type="text" class="form-control" placeholder="Faculty"/></td>
-        <td><input type="text" class="form-control" placeholder="Phone"/></td>
-        <td><input type="text" class="form-control" placeholder="Email"/></td>
-        <td><input type="text" class="form-control" placeholder="Address"/></td>
       </tr>
         <input class="abs-pos" type="submit" value="Thêm">
 </form>

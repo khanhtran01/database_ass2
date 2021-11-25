@@ -1,31 +1,28 @@
-<div class="container">
-  <div class="title">Subject</div>
-  <div>
-  <table class="table table-hover margin-table">
-    <thead>
+<div class="title">Student Choice</div>
+<table class="table table-hover margin-table">
+  <thead>
+    <tr>
+      <th>Student ID</th>
+      <th>Subject Code</th>
+      <th>Exam Date</th>
+      <th>Exam Code</th>
+      <th>Question Number</th>
+      <th>Answer Choice</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach ($data as $element) : ?>
       <tr>
-        <th>Subject Code</th>
-        <th>Subject Name</th>
-        <th>Manager Name</th>
+        <td><?= $element['Student_ID'] ?></td>
+        <td><?= $element['Subject_Code'] ?></td>
+        <td><?= $element['Exam_Date'] ?></td>
+        <td><?= $element['Exam_Code'] ?></td>
+        <td><?= $element['Answer_Number'] ?></td>
+        <td><?= $element['Answer_Choice_IDs'] ?></td>
       </tr>
-    </thead>
-    <tbody>
-      <?php foreach ($data as $element) : ?>
-        <tr style="position: relative;">
-          <td><?= $element['Subject_Code'] ?></td>
-          <td><?= $element['Name'] ?></td>
-          <td><?= $element['mng_name'] ?> <em style="position: absolute; right: 0px; top: 0px" class="ti-close"></em></td>
-          
-          
-          
-          
-        </tr>
-      <?php endforeach; ?>
-    </tbody>
-  </table>
-  </div>
-  
-</div>
+    <?php endforeach; ?>
+  </tbody>
+</table>
 
 
 
