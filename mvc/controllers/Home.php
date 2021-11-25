@@ -5,10 +5,10 @@ use function PHPSTORM_META\type;
 class Home extends controller
 {
 
-  public function viewHome($flag)
+  public function viewHome($flag,$sorted)
   {
     $data = 0;
-    $data = $this->model("GeneralModels")->getAllData($flag);
+    $data = $this->model("GeneralModels")->getAllData($flag,$sorted);
     if ($flag == 100){
       $flag = 1;
     }
@@ -37,7 +37,7 @@ class Home extends controller
         'id'=> $_POST['id']
       ]);
     }
-    header("Location: " . geturl() . "/Home/viewHome/" . $page . "");
+    header("Location: " . geturl() . "/Home/viewHome/" . $page . "/0");
   }
 
 

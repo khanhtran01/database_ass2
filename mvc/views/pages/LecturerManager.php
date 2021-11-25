@@ -23,7 +23,7 @@
         <td><?= $lecturer['Faculty'] ?></td>
         <td><?= $lecturer['Phone'] ?></td>
         <td><?= $lecturer['Email'] ?></td>
-        <td><?= $lecturer['Address'] ?> <em onclick="location.href='Edit/remove/<?=$lecturer['Lecturer_ID']?>/6'" class="ti-close btn--close"></em></td>
+        <td><?= $lecturer['Address'] ?> <em onclick="getLink(<?= $lecturer['Lecturer_ID'] ?>)" class="ti-close btn--close"></em></td>
       </tr>
       <?php endforeach; ?>
   </tbody>
@@ -40,3 +40,15 @@
 </form>
 </thead>
 </table>
+
+<script>
+  function getLink(id){
+    const currUrl = window.location.href;
+    const number = currUrl.split('/');
+    const pageNumber = number[number.length - 2];
+    var link = "Edit/remove/" + id + "/" + pageNumber;
+    // alert(link);
+    // const link1 = "Home/viewHome/6";
+    location.href = link;
+  }
+</script>

@@ -3,30 +3,54 @@
         private function _query($query){
             return mysqli_query($this->connect, $query);
         }
-        public function getAllData($flag){
+        public function getAllData($flag,$sorted){
             
-                $arr = array("","lecturer","student","subject_view","Question_view","exam","Lecturer_Manager_view","LecturerInCharge_view","choice_view","student_answer_view","description_file");
-
-            if (!isset($_SESSION["sort"])){
-                $_SESSION["sort"] = "asc";
-
+            $arr = array("","lecturer","student","subject_view","Question_view","exam","Lecturer_Manager_view","LecturerInCharge_view","choice_view","student_answer_view","description_file");
+            if ($flag != 1){
+                if (isset($_SESSION["sort"])){
+                    unset($_SESSION["sort"]);
+                }
+            }
+            if ($sorted){
+                if (!isset($_SESSION["sort"])){
+                    $_SESSION["sort"] = "asc";
+                }
+                if (isset($_SESSION["sort"])){
+                    if ($_SESSION["sort"] == "asc"){
+                        $query = "SELECT * FROM desc_lecturerid";
+                        $_SESSION["sort"] = "desc";
+                    }
+                    elseif ($_SESSION["sort"] == "desc"){
+                        $query = "SELECT * FROM asc_lecturerid";
+                        $_SESSION["sort"] = "asc";
+                    }
+                }
+            }else {
+                if (isset($_SESSION["sort"])){
+                    $query = "SELECT * FROM ".$_SESSION["sort"]."_lecturerid";
+                }
+                else {
+                    $query = "SELECT * FROM `".$arr[$flag]."`";
+                }
             }
             
-            if ($flag == 100){
-                
-                    if ($_SESSION["sort"] == "asc"){
-                    $query = "SELECT * FROM desc_lecturerid";
-                    $_SESSION["sort"] = "desc";
 
-                    }elseif ($_SESSION["sort"] == "desc") {
-                    $query = "SELECT * FROM asc_lecturerid";
-                    $_SESSION["sort"] = "asc";
-                    }
+
+            // if ($flag == 100){
+                
+            //         if ($_SESSION["sort"] == "asc"){
+            //         $query = "SELECT * FROM desc_lecturerid";
+            //         $_SESSION["sort"] = "desc";
+
+            //         }elseif ($_SESSION["sort"] == "desc") {
+            //         $query = "SELECT * FROM asc_lecturerid";
+            //         $_SESSION["sort"] = "asc";
+            //         }
     
                 
-            } else {
-                $query = "SELECT * FROM `".$arr[$flag]."`";
-            }
+            // } else {
+            //     $query = "SELECT * FROM `".$arr[$flag]."`";
+            // }
             $rawdata = $this->_query($query);
             $data = [];
             while ($row = mysqli_fetch_assoc($rawdata)) {

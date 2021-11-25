@@ -31,7 +31,7 @@ class app{
         }
 
         // Params
-        $this->params = $arr?array_values($arr):[1];
+        $this->params = $arr?array_values($arr):[1,0];
         
         call_user_func_array([$this->controller, $this->action], $this->params );
 

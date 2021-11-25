@@ -2,7 +2,7 @@
 <table class="table table-hover margin-table">
   <thead>
     <tr>
-      <th onclick="location.href='Home/viewHome/100'">Lecture ID</th>
+      <th onclick="location.href='Home/viewHome/1/1'">Lecture ID</th>
       <th>First Name</th>
       <th>Last Name</th>
       <th>Degree</th>
@@ -23,7 +23,7 @@
         <td><?= $lecturer['Faculty'] ?></td>
         <td><?= $lecturer['Phone'] ?></td>
         <td><?= $lecturer['Email'] ?></td>
-        <td><?= $lecturer['Address'] ?><em style="position: absolute; right: 0px; top: 0px" onclick="location.href='Edit/remove/<?=$lecturer['Lecturer_ID']?>/1'" class="ti-close btn--close"></em></td>
+        <td><?= $lecturer['Address'] ?><em style="position: absolute; right: 0px; top: 0px" onclick="getLink(<?= $lecturer['Lecturer_ID'] ?>)" class="ti-close btn--close"></em></td>
       </tr>
       <?php endforeach; ?>
   </tbody>
@@ -68,3 +68,14 @@
 </form>
 </thead>
 </table>
+<script>
+  function getLink(id){
+    const currUrl = window.location.href;
+    const number = currUrl.split('/');
+    const pageNumber = number[number.length - 2];
+    var link = "Edit/remove/" + id + "/" + pageNumber;
+    // alert(link);
+    // const link1 = "Home/viewHome/6";
+    location.href = link;
+  }
+</script>
