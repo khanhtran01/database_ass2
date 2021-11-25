@@ -28,5 +28,6 @@ $home_url = getUrl().'/';
         require_once "./mvc/views/pages/".$arr[$flag].".php";
         
     ?>
+    <script src="./assets/js/main.js"></script>
 </body>
 </html>

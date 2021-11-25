@@ -2,7 +2,7 @@
 <table class="table table-hover margin-table">
   <thead>
     <tr>
-      <th onclick="location.href='Home/viewHome/1/1'">Lecture ID</th>
+      <th onclick="location.href='Home/viewHome/1/1'">Lecture ID <i class="fas fa-sort"></i></th>
       <th>First Name</th>
       <th>Last Name</th>
       <th>Degree</th>

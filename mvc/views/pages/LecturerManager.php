@@ -41,7 +41,7 @@
 </thead>
 </table>
 
-<script>
+<!-- <script>
   function getLink(id){
     const currUrl = window.location.href;
     const number = currUrl.split('/');
@@ -51,4 +51,4 @@
     // const link1 = "Home/viewHome/6";
     location.href = link;
   }
-</script>
+</script> -->
