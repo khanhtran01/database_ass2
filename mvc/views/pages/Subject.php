@@ -4,7 +4,7 @@
   <table class="table table-hover margin-table">
     <thead>
       <tr>
-        <th>Subject Code</th>
+        <th>Subject Code <i class="fas fa-sort"></i></th>
         <th>Subject Name</th>
         <th>Manager Name</th>
       </tr>
@@ -33,16 +33,9 @@
 <thead>
 <form class="fix-pos" action="" method="post">
       <tr>
-        <td><input type="text" class="form-control" placeholder="ID" require/></td>
-        <td><input type="text" class="form-control" placeholder="First Name" require/></td>
-        <td><input type="text" class="form-control" placeholder="Last Name" require/></td>
-        <td><input type="text" class="form-control" placeholder="Role"/></td>
-        <td><input type="text" class="form-control" placeholder="Name" require/></td>
-        <td><input type="text" class="form-control" placeholder="Degree"/></td>
-        <td><input type="text" class="form-control" placeholder="Faculty"/></td>
-        <td><input type="text" class="form-control" placeholder="Phone"/></td>
-        <td><input type="text" class="form-control" placeholder="Email"/></td>
-        <td><input type="text" class="form-control" placeholder="Address"/></td>
+        <td><input name="subjectcode" type="text" class="form-control" placeholder="Subject Code" require/></td>
+        <td><input name="name" type="text" class="form-control" placeholder="Subject Name" require/></td>
+        <td><input name="lecturerid" type="text" class="form-control" placeholder="Manager Lecturer ID" require/></td>
       </tr>
         <input class="abs-pos" type="submit" value="Thêm">
 </form>

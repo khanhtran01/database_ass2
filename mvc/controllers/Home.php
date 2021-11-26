@@ -7,11 +7,12 @@ class Home extends controller
 
   public function viewHome($flag,$sorted)
   {
+    if (!isset($_SESSION['page'])){
+      $_SESSION['page'] = 1;
+    }
     $data = 0;
     $data = $this->model("GeneralModels")->getAllData($flag,$sorted);
-    if ($flag == 100){
-      $flag = 1;
-    }
+    
     $this->view("master", [
       "flag" => $flag,
       "data" => $data
@@ -35,6 +36,12 @@ class Home extends controller
     }elseif ($page == 6){
       $this->model("GeneralModels")->addLecturer($page,[
         'id'=> $_POST['id']
+      ]);
+    }elseif ($page == 7){
+      $this->model("GeneralModels")->addLecturer($page,[
+        'id' => $_POST['id'],
+        'role' => $_POST['role'],
+        'Scode' => $_POST['Scode']
       ]);
     }
     header("Location: " . geturl() . "/Home/viewHome/" . $page . "/0");

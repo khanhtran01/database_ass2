@@ -2,7 +2,7 @@
 <table class="table table-hover margin-table">
   <thead>
     <tr>
-      <th>Lecture ID</th>
+      <th onclick="location.href='Home/viewHome/6/1'">Lecture ID <i class="fas fa-sort"></th>
       <th>First Name</th>
       <th>Last Name</th>
       <th>Degree</th>
@@ -40,15 +40,3 @@
 </form>
 </thead>
 </table>
-
-<!-- <script>
-  function getLink(id){
-    const currUrl = window.location.href;
-    const number = currUrl.split('/');
-    const pageNumber = number[number.length - 2];
-    var link = "Edit/remove/" + id + "/" + pageNumber;
-    // alert(link);
-    // const link1 = "Home/viewHome/6";
-    location.href = link;
-  }
-</script> -->

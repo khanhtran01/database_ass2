@@ -2,7 +2,7 @@
 <table class="table table-hover margin-table">
   <thead>
     <tr>
-      <th>Question ID</th>
+      <th>Question ID <i class="fas fa-sort"></i></th>
       <th>Level</th>
       <th>Content</th>
       <th>Time Contribute</th>

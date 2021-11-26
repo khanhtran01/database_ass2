@@ -6,12 +6,17 @@
         public function getAllData($flag,$sorted){
             
             $arr = array("","lecturer","student","subject_view","Question_view","exam","Lecturer_Manager_view","LecturerInCharge_view","choice_view","student_answer_view","description_file");
-            if ($flag != 1){
+            $tableList = array("","lecturer","","","","","management_lecturer","lecturer_in_charge");
+            if ($flag != $_SESSION['page']){
+
                 if (isset($_SESSION["sort"])){
                     unset($_SESSION["sort"]);
+            echo "<script>console.log('".$_SESSION['page']."')</script>";
+            $_SESSION['page'] = $flag;
                 }
             }
-            if ($sorted){
+            if ($sorted && $flag == 1){
+
                 if (!isset($_SESSION["sort"])){
                     $_SESSION["sort"] = "asc";
                 }
@@ -25,37 +30,51 @@
                         $_SESSION["sort"] = "asc";
                     }
                 }
-            }else {
+            }elseif($sorted){
+
+                if (!isset($_SESSION["sort"])){
+                    $_SESSION["sort"] = "asc";
+                }
+
+                if (isset($_SESSION["sort"])){
+                    echo "<script>console.log('".$_SESSION["sort"]."')</script>";
+
+                    if ($_SESSION["sort"] == "asc"){
+                        $query = "SELECT * FROM desc_".$tableList[$flag]."";
+                        $_SESSION["sort"] = "desc";
+                    }
+                    elseif ($_SESSION["sort"] == "desc"){
+
+                        $query = "SELECT * FROM asc_".$tableList[$flag]."";
+                        $_SESSION["sort"] = "asc";
+                    }
+                }
+
+            }
+            elseif (!$sorted && $flag == 1) {
                 if (isset($_SESSION["sort"])){
                     $query = "SELECT * FROM ".$_SESSION["sort"]."_lecturerid";
                 }
                 else {
                     $query = "SELECT * FROM `".$arr[$flag]."`";
                 }
+            } else {
+                if (isset($_SESSION["sort"])){
+                    $query = "SELECT * FROM ".$_SESSION["sort"]."_".$tableList[$flag];
+                }
+                else {
+                    $query = "SELECT * FROM `".$arr[$flag]."`";
+                }
             }
-            
+            echo "<script>console.log('".$query."')</script>";
 
-
-            // if ($flag == 100){
-                
-            //         if ($_SESSION["sort"] == "asc"){
-            //         $query = "SELECT * FROM desc_lecturerid";
-            //         $_SESSION["sort"] = "desc";
-
-            //         }elseif ($_SESSION["sort"] == "desc") {
-            //         $query = "SELECT * FROM asc_lecturerid";
-            //         $_SESSION["sort"] = "asc";
-            //         }
-    
-                
-            // } else {
-            //     $query = "SELECT * FROM `".$arr[$flag]."`";
-            // }
             $rawdata = $this->_query($query);
             $data = [];
             while ($row = mysqli_fetch_assoc($rawdata)) {
                 array_push($data, $row);
             }
+            // print_r($data);
+
             return $data;
         }
         public function pushData($content){
@@ -70,6 +89,9 @@
             }
             if ($page == 6){
                 $query = "INSERT INTO `management_lecturer` (`MLecturer_ID`) VALUES ('".$data['id']."')";
+            }
+            if ($page == 7){
+                $query = "INSERT INTO `lecturer_in_charge` (`CLecturer_ID`, `Role`, `Inchr_Subject_Code`) VALUES ('".$data['id']."', '".$data['role']."', '".$data['Scode']."');";
             }
             $this->_query($query);
         }

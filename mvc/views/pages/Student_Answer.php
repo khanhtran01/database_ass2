@@ -2,7 +2,7 @@
 <table class="table table-hover margin-table">
   <thead>
     <tr>
-      <th>Student ID</th>
+      <th>Student ID <i class="fas fa-sort"></i></th>
       <th>Subject Code</th>
       <th>Exam Date</th>
       <th>Exam Code</th>

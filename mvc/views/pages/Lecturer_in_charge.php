@@ -2,7 +2,7 @@
 <table class="table table-hover margin-table">
   <thead>
     <tr>
-      <th>Lecture ID</th>
+      <th onclick="location.href='Home/viewHome/7/1'">Lecture ID <i class="fas fa-sort"></i></th>
       <th>First Name</th>
       <th>Last Name</th>
       <th>Role</th>
@@ -34,11 +34,18 @@
 </table>
 
 
-<table style="width: 100px" class="table table-hover margin-table">
+<table  class="table table-hover margin-table">
 <thead>
-<form  class="fix-pos" action="" method="post">
+<form  class="fix-pos" action="Home/addLecturer/7" method="post">
       <tr>
-        <td><input type="text" class="form-control" placeholder="ID" require/></td>
+        <td style="width: 150px"><input name="id" type="text" class="form-control" placeholder="ID" require/></td>
+        <td style="width: 150px">
+          <select name="role" class="form-control" placeholder="Role">
+              <option value="Main">Main</option>
+              <option value="Nomal">Nomal</option>
+          </select>
+        </td>
+        <td style="width: 150px"><input name="Scode" type="text" class="form-control" placeholder="Subject Code" require/></td>
       </tr>
         <input class="abs-pos" type="submit" value="Thêm">
 </form>
