@@ -2,6 +2,8 @@ function getLink(id){
     const currUrl = window.location.href;
     const number = currUrl.split('/');
     var pageNumber = number[number.length - 2];
+    // alert(1);
+
     if (isNaN(pageNumber)){
         pageNumber = number[number.length - 1]
         if (isNaN(pageNumber)){
@@ -12,5 +14,6 @@ function getLink(id){
         }
     }
     var link = "Edit/remove/" + id + "/" + pageNumber;
+    
     location.href = link;
   }

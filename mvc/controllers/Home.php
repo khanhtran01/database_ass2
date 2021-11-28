@@ -47,7 +47,68 @@ class Home extends controller
     header("Location: " . geturl() . "/Home/viewHome/" . $page . "/0");
   }
 
+  public function addExam($page){
+    require_once "./mvc/core/basehref.php";
+    $this->model("GeneralModels")->addExams([
+      'subcode'=> $_POST['subcode'],
+      'edate'=> $_POST['edate'],
+      'ecode'=> $_POST['ecode'],
+      'note'=> $_POST['note'],
+      'bcid'=> $_POST['bcid'],
+      'datecf'=> $_POST['datecf'],
+      'aprid'=> $_POST['aprid'],
+      'dateapp'=> $_POST['dateapp']
+    ]);
+    header("Location: " . geturl() . "/Home/viewHome/" . $page . "/0");
+  }
+  public function addStudent($page){
+    require_once "./mvc/core/basehref.php";
+    $this->model("GeneralModels")->addStudent([
+      'id'=> $_POST['id'],
+      'fn'=> $_POST['fn'],
+      'ln'=> $_POST['ln'],
+      'fa'=> $_POST['fa'],
+      'ph'=> $_POST['ph'],
+      'em'=> $_POST['em'],
+      'ad'=> $_POST['ad']
+    ]);
+    header("Location: " . geturl() . "/Home/viewHome/" . $page . "/0");
+  }
 
+
+  public function addQuestion($page){
+    require_once "./mvc/core/basehref.php";
+    $this->model("GeneralModels")->addQuestion([
+      'id'=> $_POST['id'],
+      'ctn'=> $_POST['ctn'],
+      'lv'=> $_POST['lv'],
+      'crid'=> $_POST['crid'],
+      'desid'=> $_POST['desid'],
+      'ctbid'=> $_POST['ctbid'],
+      'outcome'=> $_POST['outcome'],
+      'subcode'=> $_POST['subcode']
+    ]);
+    header("Location: " . geturl() . "/Home/viewHome/" . $page . "/0");
+  }
+  public function addSubject($page){
+    require_once "./mvc/core/basehref.php";
+    $this->model("GeneralModels")->addSubject([
+      'subjectcode'=> $_POST['subjectcode'],
+      'name'=> $_POST['name'],
+      'lecturerid'=> $_POST['lecturerid']
+    ]);
+    header("Location: " . geturl() . "/Home/viewHome/" . $page . "/0");
+  }
+  public function addChoice($page){
+    require_once "./mvc/core/basehref.php";
+    $this->model("GeneralModels")->addChoice([
+      'id'=> $_POST['id'],
+      'cid'=> $_POST['cid'],
+      'cc'=> $_POST['cc'],
+      'desid'=> $_POST['desid']
+    ]);
+    header("Location: " . geturl() . "/Home/viewHome/" . $page . "/0");
+  }
   public function Upload()
   {
     require_once "./mvc/core/basehref.php";

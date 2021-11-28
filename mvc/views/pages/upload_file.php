@@ -8,8 +8,8 @@
     </thead>
     <tbody>
       <?php foreach ($data as $element) : ?>
-        <tr>
-          <td><?= $element['File_Path'] ?></td>
+        <tr style="position: relative;">
+          <td><?= $element['File_Path'] ?><em style="position: absolute; right: 0px; top: 0px" onclick="getLink('<?= $element['File_Path'] ?>')" class="ti-close btn--close"></em></td>
         </tr>
       <?php endforeach; ?>
     </tbody>

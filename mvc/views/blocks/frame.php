@@ -1,4 +1,4 @@
-<div class="navbar--nonboost">
+<div style="z-index: 5;" class="navbar--nonboost">
     <ul>
         <li class="dropdown"><a href="Home/viewHome/1/0">Lecture <em class="ti-angle-down"></em> </a>
             <ul>

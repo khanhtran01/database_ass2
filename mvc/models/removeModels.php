@@ -5,24 +5,9 @@
         }
 
         public function remove($primary_key,$page){
-            // test with lecturer  management_lecturer
-            // echo "<script>alert('".$primary_key."')</script>";
-
-            $page_array = array("","lecturer","","","","","management_lecturer","lecturer_in_charge","");
-            if (!$page == 100){
-                $query = "DELETE FROM ".$page_array[$page]." WHERE Lecturer_ID =".$primary_key.";";
-
-            }else {
-                $query = "DELETE FROM lecturer WHERE Lecturer_ID =".$primary_key.";";
-            }
-            if ($page == 6){
-                $query = "DELETE FROM ".$page_array[$page]." WHERE MLecturer_ID =".$primary_key.";";
-            }
-            if ($page == 7){
-                $query = "DELETE FROM ".$page_array[$page]." WHERE CLecturer_ID =".$primary_key.";";
-            }
-            // echo "<script>alert('".$primary_key."')</script>";
-            
+            $page_array = array("","lecturer","student","subject","question","exam","management_lecturer","lecturer_in_charge","choice");
+            $key_array = array("","Lecturer_ID","Student_ID","Subject_Code","Question_ID","Exam_Code","MLecturer_ID","CLecturer_ID","Choice_ID","","","");
+            $query = "DELETE FROM ".$page_array[$page]." WHERE ".$key_array[$page]." = '".$primary_key."';";   
             $this->_query($query);
         }
     }

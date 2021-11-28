@@ -2,7 +2,7 @@
 <table class="table table-hover margin-table">
   <thead>
     <tr>
-      <th>Student ID <i class="fas fa-sort"></i></th>
+      <th onclick="location.href='Home/viewHome/9/1'">Student ID <i class="fas fa-sort"></i></th>
       <th>Subject Code</th>
       <th>Exam Date</th>
       <th>Exam Code</th>
@@ -12,13 +12,13 @@
   </thead>
   <tbody>
     <?php foreach ($data as $element) : ?>
-      <tr>
+      <tr  style="position: relative;">
         <td><?= $element['Student_ID'] ?></td>
         <td><?= $element['Subject_Code'] ?></td>
         <td><?= $element['Exam_Date'] ?></td>
         <td><?= $element['Exam_Code'] ?></td>
         <td><?= $element['Answer_Number'] ?></td>
-        <td><?= $element['Answer_Choice_IDs'] ?></td>
+        <td><?= $element['Answer_Choice_IDs'] ?><em style="position: absolute; right: 0px; top: 0px" onclick="getLink(<?= $element['Student_ID'] ?>)" class="ti-close btn--close"></em></td>
       </tr>
     <?php endforeach; ?>
   </tbody>

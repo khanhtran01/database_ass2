@@ -2,7 +2,7 @@
 <table class="table table-hover margin-table">
   <thead>
     <tr>
-      <th>Question ID <i class="fas fa-sort"></i></th>
+      <th onclick="location.href='Home/viewHome/4/1'">Question ID <i class="fas fa-sort"></i></th>
       <th>Level</th>
       <th>Content</th>
       <th>Time Contribute</th>
@@ -12,13 +12,13 @@
   </thead>
   <tbody>
     <?php foreach ($data as $element) : ?>
-      <tr>
+      <tr  style="position: relative;">
         <td><?= $element['Question_ID'] ?></td>
         <td><?= $element['Level'] ?></td>
         <td><?= $element['Content'] ?></td>
         <td><?= $element['Time_Contribute'] ?></td>
         <td><?= $element['Correct_Choice_ID'] ?></td>
-        <td><?= $element['fullname'] ?></td>
+        <td><?= $element['fullname'] ?> <em style="position: absolute; right: 0px; top: 0px" onclick="getLink('<?= $element['Question_ID'] ?>')" class="ti-close btn--close"></em></td>
       </tr>
     <?php endforeach; ?>
   </tbody>
@@ -27,13 +27,22 @@
 
 <table class="table margin-table">
 <thead>
-<form class="fix-pos" action="" method="post">
+<form class="fix-pos" action="Home/addQuestion/4" method="post">
       <tr>
-        <td><input type="text" class="form-control" placeholder="ID" require/></td>
-        <td><input type="text" class="form-control" placeholder="First Name" require/></td>
-        <td><input type="text" class="form-control" placeholder="Last Name" require/></td>
-        <td><input type="text" class="form-control" placeholder="Role"/></td>
-        <td><input type="text" class="form-control" placeholder="Role"/></td>
+        <td><input name="id" type="text" class="form-control" placeholder="ID" require/></td>
+        <td style="width: 300px" ><input name="ctn" type="text" class="form-control" placeholder="Content" /></td>
+        <td style="width: 150px">
+          <select name="lv" class="form-control" placeholder="level">
+              <option value="Easy">Easy</option>
+              <option value="Medium">Medium</option>
+              <option value="Difficult">Difficult</option>
+          </select>
+        </td>
+        <td><input name="crid" type="text" class="form-control" placeholder="Correct Choice"/></td>
+        <td><input name="desid" type="text" class="form-control" placeholder="Described content ID"/></td>
+        <td><input name="ctbid" type="text" class="form-control" placeholder="Contribute ID" /></td>
+        <td><input name="outcome" type="text" class="form-control" placeholder="Out Come" /></td>
+        <td><input name="subcode" type="text" class="form-control" placeholder="Subject Code" /></td>
       </tr>
         <input class="abs-pos" type="submit" value="Thêm">
 </form>

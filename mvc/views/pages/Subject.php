@@ -4,7 +4,7 @@
   <table class="table table-hover margin-table">
     <thead>
       <tr>
-        <th>Subject Code <i class="fas fa-sort"></i></th>
+        <th onclick="location.href='Home/viewHome/3/1'">Subject Code <i class="fas fa-sort"></i></th>
         <th>Subject Name</th>
         <th>Manager Name</th>
       </tr>
@@ -14,7 +14,7 @@
         <tr style="position: relative;">
           <td><?= $element['Subject_Code'] ?></td>
           <td><?= $element['Name'] ?></td>
-          <td><?= $element['mng_name'] ?> <em style="position: absolute; right: 0px; top: 0px" class="ti-close"></em></td>
+          <td><?= $element['mng_name'] ?> <em style="position: absolute; right: 0px; top: 0px" onclick="getLink('<?= $element['Subject_Code'] ?>')" class="ti-close btn--close"></em></td>
           
           
           
@@ -31,7 +31,7 @@
 
 <table class="table margin-table">
 <thead>
-<form class="fix-pos" action="" method="post">
+<form class="fix-pos" action="Home/addSubject/3" method="post">
       <tr>
         <td><input name="subjectcode" type="text" class="form-control" placeholder="Subject Code" require/></td>
         <td><input name="name" type="text" class="form-control" placeholder="Subject Name" require/></td>
