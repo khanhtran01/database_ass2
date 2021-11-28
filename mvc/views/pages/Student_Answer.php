@@ -30,16 +30,13 @@
 <thead>
 <form class="fix-pos" action="" method="post">
       <tr>
-        <td><input type="text" class="form-control" placeholder="ID" require/></td>
-        <td><input type="text" class="form-control" placeholder="First Name" require/></td>
-        <td><input type="text" class="form-control" placeholder="Last Name" require/></td>
-        <td><input type="text" class="form-control" placeholder="Role"/></td>
-        <td><input type="text" class="form-control" placeholder="Name" require/></td>
-        <td><input type="text" class="form-control" placeholder="Degree"/></td>
-        <td><input type="text" class="form-control" placeholder="Faculty"/></td>
-        <td><input type="text" class="form-control" placeholder="Phone"/></td>
-        <td><input type="text" class="form-control" placeholder="Email"/></td>
-        <td><input type="text" class="form-control" placeholder="Address"/></td>
+        <td><input name="sid" type="number" class="form-control" placeholder="Student ID" require/></td>
+        <td><input name="subcode" type="text" class="form-control" placeholder="Subject Code" require/></td>
+        <td><input name="edate" type="date" class="form-control" placeholder="Exam Date" require/></td>
+        <td><input name="ecode" type="text" class="form-control" placeholder="Exam Code"/></td>
+        <td><input name="ansnumb" type="number" class="form-control" placeholder="Answer Number" require/></td>
+        <td><input name="ansno" type="number" class="form-control" placeholder="Answer No"/></td>
+        <td><input name="anschoice" type="text" class="form-control" placeholder="Answer Choice"/></td>
       </tr>
         <input class="abs-pos" type="submit" value="Thêm">
 </form>

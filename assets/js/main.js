@@ -13,6 +13,10 @@ function getLink(id){
             pageNumber = 1;
         }
     }
+    if (pageNumber == 10){
+        id = id.replaceAll('/','-');
+    }
+    // alert(id);
     var link = "Edit/remove/" + id + "/" + pageNumber;
     
     location.href = link;
