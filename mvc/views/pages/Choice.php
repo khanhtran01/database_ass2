@@ -15,7 +15,7 @@
           <td><?= $element['Question_ID'] ?></td>
           <td><?= $element['Choice_ID'] ?></td>
           <td><?= $element['Choice_Content'] ?></td>
-          <td><?= $element['File_Path'] ?><em style="position: absolute; right: 0px; top: 0px" onclick="getLink('<?= $element['Choice_ID'] ?>')" class="ti-close btn--close"></em></td>
+          <td><?= $element['File_Path'] ?><em style="position: absolute; right: 0px; top: 0px" onclick="getLink('<?= $element['Question_ID'] ?>')" class="ti-close btn--close"></em></td>
         </tr>
       <?php endforeach; ?>
     </tbody>
